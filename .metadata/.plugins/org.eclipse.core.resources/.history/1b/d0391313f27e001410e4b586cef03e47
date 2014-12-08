@@ -1,0 +1,113 @@
+package com.zenika.formation.osgi.service.consumer.internal;
+
+import java.util.Dictionary;
+import java.util.StringTokenizer;
+
+import javax.servlet.Servlet;
+import javax.servlet.ServletException;
+
+import org.osgi.framework.Bundle;
+import org.osgi.framework.BundleActivator;
+import org.osgi.framework.BundleContext;
+import org.osgi.framework.BundleEvent;
+import org.osgi.framework.ServiceReference;
+import org.osgi.service.http.HttpService;
+import org.osgi.service.http.NamespaceException;
+import org.osgi.service.log.LogService;
+import org.osgi.util.tracker.BundleTracker;
+import org.osgi.util.tracker.ServiceTracker;
+import org.osgi.util.tracker.ServiceTrackerCustomizer;
+
+public class Activator implements BundleActivator {
+	ServiceReference<LogService> sr = null;
+	ServiceTracker<LogService, LogService> tracker = null;
+	ServiceReference<HttpService> httpServiceRef = null;
+
+	@Override
+	public void start(BundleContext context) throws Exception {
+		// sr = context.getServiceReference(LogService.class);
+		// if (sr != null) {
+		// LogService log = context.getService(sr);
+		// log.log(1, "Coucou c'est erik et ça marche, from bundle "
+		// + context.getBundle().getBundleId());
+		// }
+
+		TrackerCustom custom = new TrackerCustom();
+		custom.setContext(context);
+
+		tracker = new ServiceTracker<LogService, LogService>(
+				context,
+				context.createFilter("(&(objectClass=org.osgi.service.log.LogService)(nature=basic))"),
+				(ServiceTrackerCustomizer<LogService, LogService>) custom);
+
+		tracker.open();
+		// LogService ls = tracker.getService();
+		// ls.log(1, "Coucou c'est erik et ça marche, from bundle "
+		// + context.getBundle().getBundleId());
+
+		httpServiceRef = context.getServiceReference(HttpService.class);
+		HttpService http = context.getService(httpServiceRef);
+		
+		BundleTracker<String> bTrack = new BundleTracker<String>(context,
+				Bundle.ACTIVE, null) {
+
+			@Override
+			public String addingBundle(Bundle bundle, BundleEvent event) {
+				Dictionary<String, String> headers = bundle.getHeaders();
+				while (headers.keys().hasMoreElements()) {
+					String key = headers.keys().nextElement();
+					if ("Servlet-Map".equals(key)) {
+						
+						StringTokenizer stk = new StringTokenizer(
+								headers.get(key), ",");
+						while (stk.hasMoreElements()) {
+							String servletDecl = stk.nextToken();
+							StringTokenizer stk2 = new StringTokenizer(
+									headers.get(key), "=");
+							String urlFragment = stk2.nextToken();
+							String servletName = stk2.nextToken();
+							try {
+								http.registerServlet(urlFragment, (Servlet)Class.forName(servletName).newInstance(), null, null);
+							} catch (InstantiationException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							} catch (IllegalAccessException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							} catch (ClassNotFoundException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							} catch (ServletException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							} catch (NamespaceException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+						}
+					}
+				}
+				return bundle.toString();
+			}
+
+			@Override
+			public void remove(Bundle bundle) {
+				// TODO Auto-generated method stub
+				super.remove(bundle);
+			}
+
+		};
+	}
+
+	@Override
+	public void stop(BundleContext context) throws Exception {
+		if (sr != null) {
+			context.ungetService(sr);
+		}
+		if (tracker != null) {
+			tracker.close();
+		}
+
+	}
+
+}

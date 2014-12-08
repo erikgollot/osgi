@@ -1,0 +1,5 @@
+start file:C:/Users/rformation/osgi/logservice-provider/target/logservice-provider-0.1.0-SNAPSHOT.jar
+
+start file:C:/Users/rformation/osgi/service-consumer/target/service-consumer-0.1.0-SNAPSHOT.jar
+
+start file:C:/Users/rformation/osgi/servlet-provider/target/servlet-provider-0.1.0-SNAPSHOT.jar

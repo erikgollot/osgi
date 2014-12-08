@@ -18,7 +18,7 @@ public class TrackerCustom implements ServiceTrackerCustomizer<LogService, LogSe
 	@Override
 	public LogService addingService(ServiceReference<LogService> reference) {
 		LogService service = getContext().getService(reference);
-		service.log(1, "Coucou c'est erik et ça marche, from bundle "
+		service.log(LogService.LOG_DEBUG, "Coucou c'est erik et ça marche, from bundle "
 				+ context.getBundle().getBundleId());
 		return service;
 	}
