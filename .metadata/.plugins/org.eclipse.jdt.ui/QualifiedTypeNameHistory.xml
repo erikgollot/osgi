@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="org.osgi.framework.BundleActivator"/>
+<fullyQualifiedTypeName name="com.zenika.formation.osgi.logservice.provider.internal.BasicLogService"/>
+<fullyQualifiedTypeName name="org.osgi.framework.ServiceRegistration"/>
+<fullyQualifiedTypeName name="org.osgi.service.log.LogService"/>
+</qualifiedTypeNameHistroy>

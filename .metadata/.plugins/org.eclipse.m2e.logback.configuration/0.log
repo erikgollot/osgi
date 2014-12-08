@@ -512,3 +512,55 @@
 2014-12-08 13:53:35,626 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
 2014-12-08 13:53:35,627 [Worker-9] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
 2014-12-08 13:53:35,628 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\rformation\osgi\logservice-provider\src\test\resources
+2014-12-08 14:22:05,004 [Worker-11] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-08 14:22:05,422 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2014-12-08 14:22:05,424 [Worker-11] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-08 14:22:05,424 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\rformation\osgi\logservice-provider\src\test\resources
+2014-12-08 14:22:06,619 [Worker-0] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-08 14:22:06,620 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2014-12-08 14:22:06,621 [Worker-0] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-08 14:22:06,621 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\rformation\osgi\logservice-provider\src\test\resources
+2014-12-08 14:23:15,767 [Worker-3] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-08 14:23:15,768 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2014-12-08 14:23:15,769 [Worker-3] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-08 14:23:15,769 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\rformation\osgi\logservice-provider\src\test\resources
+2014-12-08 14:23:34,018 [Worker-3] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-08 14:23:34,020 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2014-12-08 14:23:34,022 [Worker-3] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-08 14:23:34,023 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\rformation\osgi\logservice-provider\src\test\resources
+2014-12-08 14:24:15,967 [Worker-4] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-08 14:24:15,968 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2014-12-08 14:24:15,969 [Worker-4] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-08 14:24:15,969 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\rformation\osgi\logservice-provider\src\test\resources
+2014-12-08 14:25:26,288 [Worker-4] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-08 14:25:26,289 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2014-12-08 14:25:26,290 [Worker-4] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-08 14:25:26,290 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\rformation\osgi\logservice-provider\src\test\resources
+2014-12-08 14:25:33,731 [Worker-4] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-08 14:25:33,732 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2014-12-08 14:25:33,734 [Worker-4] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-08 14:25:33,735 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\rformation\osgi\logservice-provider\src\test\resources
+2014-12-08 14:26:09,776 [Worker-3] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-08 14:26:09,777 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2014-12-08 14:26:09,779 [Worker-3] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-08 14:26:09,779 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\rformation\osgi\logservice-provider\src\test\resources
+2014-12-08 14:26:34,298 [Worker-9] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-08 14:26:34,299 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2014-12-08 14:26:34,301 [Worker-9] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-08 14:26:34,301 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\rformation\osgi\logservice-provider\src\test\resources
+2014-12-08 14:30:11,381 [Worker-12] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using DEFAULT lifecycle mapping for MavenProject: com.zenika.formation.osgi:logservice-provider:0.1.0-SNAPSHOT @ C:\Users\rformation\osgi\logservice-provider\pom.xml.
+2014-12-08 14:30:11,465 [Worker-12] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-08 14:30:11,466 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2014-12-08 14:30:11,467 [Worker-12] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-08 14:30:11,467 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\rformation\osgi\logservice-provider\src\test\resources
+2014-12-08 14:30:38,891 [Worker-7] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using DEFAULT lifecycle mapping for MavenProject: com.zenika.formation.osgi:logservice-provider:0.1.0-SNAPSHOT @ C:\Users\rformation\osgi\logservice-provider\pom.xml.
+2014-12-08 14:30:38,921 [Worker-7] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-08 14:30:38,921 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2014-12-08 14:30:38,922 [Worker-7] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-08 14:30:38,922 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\rformation\osgi\logservice-provider\src\test\resources
+2014-12-08 14:35:18,733 [main] INFO  o.e.m2e.actions.ExecutePomAction - Creating new launch configuration
+2014-12-08 14:35:30,199 [Worker-6] INFO  o.e.m.i.launch.MavenLaunchDelegate - C:\Users\rformation\osgi\logservice-provider
+2014-12-08 14:35:30,200 [Worker-6] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B clean install
+2014-12-08 14:41:11,206 [main] INFO  o.e.m2e.actions.ExecutePomAction - Using existing launch configuration
+2014-12-08 14:41:11,268 [Worker-4] INFO  o.e.m.i.launch.MavenLaunchDelegate - C:\Users\rformation\osgi\logservice-provider
+2014-12-08 14:41:11,269 [Worker-4] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B clean install

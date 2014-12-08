@@ -46,7 +46,8 @@
 				<extensions>true</extensions>
 				<configuration>
 					<instructions>
-						<!-- a completer -->
+						<Bundle-Activator>com.zenika.formation.osgi.logservice.provider.internal.Activator</Bundle-Activator>
+						<Export-Package>org.osgi.service.log</Export-Package>
 					</instructions>
 				</configuration>
 			</plugin>

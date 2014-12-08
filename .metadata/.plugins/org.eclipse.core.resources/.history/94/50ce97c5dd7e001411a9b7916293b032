@@ -1,0 +1,21 @@
+package com.zenika.formation.osgi.logservice.provider.internal;
+
+import org.osgi.framework.BundleActivator;
+import org.osgi.framework.BundleContext;
+import org.osgi.service.log.LogService;
+
+public class Activator implements BundleActivator{
+	BasicLogService service;
+	@Override
+	public void start(BundleContext context) throws Exception {
+		service = new BasicLogService();
+		context.registerService(LogService.class, service, null);
+	}
+
+	@Override
+	public void stop(BundleContext context) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+    
+}
