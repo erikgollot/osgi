@@ -1,0 +1,8 @@
+package com.zenika.formation.osgi.service.consumer.internal;
+
+import org.osgi.service.log.LogService;
+import org.osgi.util.tracker.ServiceTrackerCustomizer;
+
+public class TrackerCustom ServiceTrackerCustomizer<LogService, LogService> {
+
+}
