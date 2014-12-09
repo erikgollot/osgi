@@ -28,6 +28,8 @@ public class Activator implements BundleActivator {
 	ServiceReference<HttpService> httpServiceRef = null;
 	HttpService http = null;
 	Hashtable<Long, List<String>> servletAlias = new Hashtable<Long, List<String>>();
+	List<ServletDecl> beforeHttp = new ArrayList<ServletDecl>();
+	List<ServletDecl> allDecls = new ArrayList<ServletDecl>();
 	BundleTracker<String> bTrack;
 	
 	@Override
@@ -62,13 +64,13 @@ public class Activator implements BundleActivator {
 //				}
 				List<ServletDecl> configs = null;
 				if ((configs = findServletDecl(bundle)) != null) {
-					System.out.println("adding servlets from bundle"+bundle.getBundleId());
+					System.out.println("adding "+bundle.getBundleId());
 					//if (http != null) {
 						registerServlets(configs);
 //					} else {
 //						beforeHttp.addAll(configs);
 //					}
-					
+					allDecls.addAll(configs);
 				}
 				return bundle.toString();
 			}
