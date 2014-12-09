@@ -7,12 +7,14 @@ import java.util.Hashtable;
 import java.util.List;
 
 import javax.servlet.Servlet;
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.BundleEvent;
+import org.osgi.framework.InvalidSyntaxException;
 import org.osgi.framework.ServiceReference;
 import org.osgi.service.http.HttpService;
 import org.osgi.service.http.NamespaceException;
@@ -27,6 +29,7 @@ public class Activator implements BundleActivator {
 	ServiceReference<HttpService> httpServiceRef = null;
 	HttpService http = null;
 	Hashtable<Long, List<String>> servletAlias = new Hashtable<Long, List<String>>();
+	List<ServletDecl> beforeHttp = new ArrayList<ServletDecl>();
 
 	@Override
 	public void start(BundleContext context) throws Exception {
@@ -37,84 +40,81 @@ public class Activator implements BundleActivator {
 		// + context.getBundle().getBundleId());
 		// }
 
-		TrackerCustom custom = new TrackerCustom();
-		custom.setContext(context);
-
-		tracker = new ServiceTracker<LogService, LogService>(
-				context,
-				context.createFilter("(&(objectClass=org.osgi.service.log.LogService)(nature=basic))"),
-				(ServiceTrackerCustomizer<LogService, LogService>) custom);
-
-		tracker.open();
+		startServiceTracker(context);
 		// LogService ls = tracker.getService();
 		// ls.log(1, "Coucou c'est erik et ça marche, from bundle "
 		// + context.getBundle().getBundleId());
 
+		startBundleTracker(context);
+	}
+
+	private void startBundleTracker(BundleContext context) {
 		BundleTracker<String> bTrack = new BundleTracker<String>(context,
 				Bundle.ACTIVE, null) {
 
 			@Override
 			public String addingBundle(Bundle bundle, BundleEvent event) {
-				System.out.println("track new bundle : "
-						+ bundle.getSymbolicName());
-				httpServiceRef = context.getServiceReference(HttpService.class);
-				System.out.println("get httpService = " + httpServiceRef);
-				if (httpServiceRef != null) {
-					http = context.getService(httpServiceRef);
-					if (http != null) {
-						System.out.println("httpService= " + http);
-
-						Dictionary<String, String> headers = bundle
-								.getHeaders();
-						System.out.println("lookup headers");
-						Enumeration it = headers.keys();
-						while (it.hasMoreElements()) {
-							String key = (String) it.nextElement();
-							if ("Servlet-Map".equals(key)) {
-								System.out.println("split " + key);
-								String servletDecls[] = headers.get(key).split(
-										",");
-
-								for (int i = 0; i < servletDecls.length; i++) {
-									String servletDecl = servletDecls[i];
-									String stk2[] = servletDecl.split("=");
-									String urlFragment = stk2[0];
-									String servletName = stk2[1];
-									try {
-										System.out.println("register : "
-												+ urlFragment + " for class = "
-												+ servletName);
-										http.registerServlet(
-												urlFragment,
-												(Servlet) bundle.loadClass(
-														servletName)
-														.newInstance(), null,
-												null);
-										addAlias(bundle.getBundleId(),
-												urlFragment);
-									} catch (InstantiationException e) {
-										// TODO Auto-generated catch block
-										e.printStackTrace();
-									} catch (IllegalAccessException e) {
-										// TODO Auto-generated catch block
-										e.printStackTrace();
-									} catch (ClassNotFoundException e) {
-										// TODO Auto-generated catch block
-										e.printStackTrace();
-									} catch (ServletException e) {
-										// TODO Auto-generated catch block
-										e.printStackTrace();
-									} catch (NamespaceException e) {
-										// TODO Auto-generated catch block
-										e.printStackTrace();
-									}
-								}
-							}
-						}
-						System.out.println("end lookup headers");
+				if (http == null) {
+					loadHttpService();
+					if (!beforeHttp.isEmpty()) {
+						registerServlets(beforeHttp);
+					}
+				}
+				List<ServletDecl> configs = null;
+				if ((configs = findServletDecl(bundle)) != null) {
+					if (http!=null) {
+						registerServlets(configs);
+					}
+					else {
+						beforeHttp.addAll(configs);
 					}
 				}
 				return bundle.toString();
+			}
+
+			private void registerServlets(List<ServletDecl> configs) {
+				for (ServletDecl s : configs) {
+					try {
+						http.registerServlet(s.getContext(),
+								(Servlet) s.getBundle().loadClass(s.getClassName())
+										.newInstance(), null, null);
+						addAlias(s.getBundle().getBundleId(), s.getContext());
+					} catch (InstantiationException | IllegalAccessException
+							| ClassNotFoundException | ServletException
+							| NamespaceException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+
+			private List<ServletDecl> findServletDecl(Bundle bundle) {
+				Dictionary<String, String> headers = bundle.getHeaders();
+				List<ServletDecl> servlets = null;
+				Enumeration it = headers.keys();
+				while (it.hasMoreElements()) {
+					String key = (String) it.nextElement();
+					if ("Servlet-Map".equals(key)) {
+						servlets = new ArrayList<ServletDecl>();
+						String servletDecls[] = headers.get(key).split(",");
+
+						for (int i = 0; i < servletDecls.length; i++) {
+							String servletDecl = servletDecls[i];
+							String stk2[] = servletDecl.split("=");
+							String urlFragment = stk2[0];
+							String servletName = stk2[1];
+							servlets.add(new ServletDecl(urlFragment,
+									servletName, bundle));
+						}
+					}
+				}
+				return servlets;
+			}
+
+			private void loadHttpService() {
+				httpServiceRef = context.getServiceReference(HttpService.class);
+				if (httpServiceRef != null) {
+					http = context.getService(httpServiceRef);
+				}
 			}
 
 			@Override
@@ -131,6 +131,19 @@ public class Activator implements BundleActivator {
 		};
 
 		bTrack.open();
+	}
+
+	private void startServiceTracker(BundleContext context)
+			throws InvalidSyntaxException {
+		TrackerCustom custom = new TrackerCustom();
+		custom.setContext(context);
+
+		tracker = new ServiceTracker<LogService, LogService>(
+				context,
+				context.createFilter("(&(objectClass=org.osgi.service.log.LogService)(nature=basic))"),
+				(ServiceTrackerCustomizer<LogService, LogService>) custom);
+
+		tracker.open();
 	}
 
 	protected void addAlias(long bundleId, String urlFragment) {
