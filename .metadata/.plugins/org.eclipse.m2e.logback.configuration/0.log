@@ -1692,3 +1692,18 @@
 2014-12-09 14:56:00,130 [main] INFO  o.e.m2e.actions.ExecutePomAction - Using existing launch configuration
 2014-12-09 14:56:00,182 [Worker-9] INFO  o.e.m.i.launch.MavenLaunchDelegate - C:\Users\rformation\osgi\ipojo-service-consumer
 2014-12-09 14:56:00,183 [Worker-9] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B clean install
+2014-12-09 14:58:24,056 [Worker-12] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-09 14:58:24,057 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2014-12-09 14:58:24,060 [Worker-12] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-09 14:58:24,061 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\rformation\osgi\ipojo-service-consumer\src\test\resources
+2014-12-09 14:59:45,450 [Worker-7] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-09 14:59:45,451 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2014-12-09 14:59:45,453 [Worker-7] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-09 14:59:45,453 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\rformation\osgi\ipojo-service-consumer\src\test\resources
+2014-12-09 14:59:50,496 [Worker-11] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-09 14:59:50,498 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2014-12-09 14:59:50,501 [Worker-11] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-09 14:59:50,501 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\rformation\osgi\ipojo-service-consumer\src\test\resources
+2014-12-09 15:00:18,061 [main] INFO  o.e.m2e.actions.ExecutePomAction - Using existing launch configuration
+2014-12-09 15:00:18,125 [Worker-0] INFO  o.e.m.i.launch.MavenLaunchDelegate - C:\Users\rformation\osgi\ipojo-service-consumer
+2014-12-09 15:00:18,126 [Worker-0] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B clean install

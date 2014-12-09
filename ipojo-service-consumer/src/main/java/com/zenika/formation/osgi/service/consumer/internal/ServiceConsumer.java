@@ -10,6 +10,7 @@ import javax.servlet.Servlet;
 import org.apache.felix.ipojo.annotations.Bind;
 import org.apache.felix.ipojo.annotations.Component;
 import org.apache.felix.ipojo.annotations.Unbind;
+import org.apache.felix.ipojo.annotations.Validate;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.BundleEvent;
@@ -109,8 +110,13 @@ public class ServiceConsumer {
 	public void bindHttpService(HttpService httpService,
 			ServiceReference<HttpService> reference) {
 		this.httpService = httpService;
+		
+	}
+	
+	@Validate
+	public void start() {
 		try {
-			start(reference.getBundle().getBundleContext());
+			start(bundleContext);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
