@@ -2,6 +2,7 @@ package com.zenika.formation.osgi.logservice.provider.internal;
 
 import org.apache.felix.ipojo.annotations.Component;
 import org.apache.felix.ipojo.annotations.Provides;
+import org.apache.felix.ipojo.annotations.ServiceProperty;
 import org.osgi.framework.ServiceReference;
 import org.osgi.service.log.LogService;
 
@@ -9,6 +10,9 @@ import org.osgi.service.log.LogService;
 @Provides
 public class BasicLogService implements LogService {
 
+	@ServiceProperty(value="basic")
+	private String nature;
+	
 	public void log(int level, String message) {
 		log(null, level, message, null);
 	}

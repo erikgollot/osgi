@@ -21,6 +21,9 @@ import org.osgi.util.tracker.BundleTracker;
 @Component(name = "ServiceConsumer")
 public class ServiceConsumer {
 
+	public ServiceConsumer(BundleContext bundleContext) {
+		this.bundleContext=bundleContext;
+	}
 	/**
 	 * OSGi BundleContext.
 	 */
@@ -79,10 +82,10 @@ public class ServiceConsumer {
 	 * @param logService
 	 *            LogService instance
 	 */
-	@Bind
+	@Bind(filter="(nature=basic)")
 	public void bindLogService(LogService logService) {
 		this.logService = logService;
-		log(LogService.LOG_INFO, "Message from bundle [" + "me" + "]", null);
+		log(LogService.LOG_INFO, "Message from bundle [" + bundleContext.getBundle().getBundleId() + "]", null);
 	}
 
 	/**
