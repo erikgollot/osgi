@@ -7,7 +7,6 @@ import java.util.Hashtable;
 import java.util.List;
 
 import javax.servlet.Servlet;
-import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 
 import org.osgi.framework.Bundle;
@@ -30,7 +29,9 @@ public class Activator implements BundleActivator {
 	HttpService http = null;
 	Hashtable<Long, List<String>> servletAlias = new Hashtable<Long, List<String>>();
 	List<ServletDecl> beforeHttp = new ArrayList<ServletDecl>();
-
+	List<ServletDecl> allDecls = new ArrayList<ServletDecl>();
+	BundleTracker<String> bTrack;
+	
 	@Override
 	public void start(BundleContext context) throws Exception {
 		// sr = context.getServiceReference(LogService.class);
@@ -40,34 +41,36 @@ public class Activator implements BundleActivator {
 		// + context.getBundle().getBundleId());
 		// }
 
-		startServiceTracker(context);
+		
 		// LogService ls = tracker.getService();
 		// ls.log(1, "Coucou c'est erik et ça marche, from bundle "
 		// + context.getBundle().getBundleId());
 
-		startBundleTracker(context);
+		declareBundleTracker(context);
+		startServiceTracker(context);
 	}
 
-	private void startBundleTracker(BundleContext context) {
-		BundleTracker<String> bTrack = new BundleTracker<String>(context,
+	private void declareBundleTracker(BundleContext context) {
+		bTrack = new BundleTracker<String>(context,
 				Bundle.ACTIVE, null) {
 
 			@Override
 			public String addingBundle(Bundle bundle, BundleEvent event) {
-				if (http == null) {
-					loadHttpService();
-					if (!beforeHttp.isEmpty()) {
-						registerServlets(beforeHttp);
-					}
-				}
+//				if (http == null) {
+//					loadHttpService();
+//					if (http != null && !beforeHttp.isEmpty()) {
+//						registerServlets(beforeHttp);
+//					}
+//				}
 				List<ServletDecl> configs = null;
 				if ((configs = findServletDecl(bundle)) != null) {
-					if (http!=null) {
+					System.out.println("adding "+bundle.getBundleId());
+					//if (http != null) {
 						registerServlets(configs);
-					}
-					else {
-						beforeHttp.addAll(configs);
-					}
+//					} else {
+//						beforeHttp.addAll(configs);
+//					}
+					allDecls.addAll(configs);
 				}
 				return bundle.toString();
 			}
@@ -75,14 +78,14 @@ public class Activator implements BundleActivator {
 			private void registerServlets(List<ServletDecl> configs) {
 				for (ServletDecl s : configs) {
 					try {
-						http.registerServlet(s.getContext(),
-								(Servlet) s.getBundle().loadClass(s.getClassName())
-										.newInstance(), null, null);
+						http.registerServlet(s.getContext(), (Servlet) s
+								.getBundle().loadClass(s.getClassName())
+								.newInstance(), null, null);
 						addAlias(s.getBundle().getBundleId(), s.getContext());
 					} catch (InstantiationException | IllegalAccessException
 							| ClassNotFoundException | ServletException
 							| NamespaceException e) {
-						e.printStackTrace();
+						// Probably already registered
 					}
 				}
 			}
@@ -110,30 +113,12 @@ public class Activator implements BundleActivator {
 				return servlets;
 			}
 
-			private void loadHttpService() {
-				httpServiceRef = context.getServiceReference(HttpService.class);
-				if (httpServiceRef != null) {
-					http = context.getService(httpServiceRef);
-				}
-			}
-
-			@Override
-			public void remove(Bundle bundle) {
-				List<String> urls = servletAlias.get(bundle.getBundleId());
-				if (urls != null) {
-					for (String url : urls) {
-						http.unregister(url);
-					}
-					servletAlias.remove(bundle.getBundleId());
-				}
-			}
+			
 
 		};
-
-		bTrack.open();
 	}
 
-	private void startServiceTracker(BundleContext context)
+	private void startServiceTracker(final BundleContext context)
 			throws InvalidSyntaxException {
 		TrackerCustom custom = new TrackerCustom();
 		custom.setContext(context);
@@ -144,6 +129,46 @@ public class Activator implements BundleActivator {
 				(ServiceTrackerCustomizer<LogService, LogService>) custom);
 
 		tracker.open();
+
+		// track HTTP service
+		ServiceTracker<HttpService, HttpService> tracker2= new ServiceTracker<HttpService, HttpService>(
+				context,
+				context.createFilter("(objectClass=org.osgi.service.http.HttpService)"),
+				new ServiceTrackerCustomizer<HttpService, HttpService>() {
+
+					@Override
+					public HttpService addingService(
+							ServiceReference<HttpService> reference) {
+						http = context.getService(reference);
+						bTrack.open();
+						return http;
+					}
+
+					@Override
+					public void modifiedService(
+							ServiceReference<HttpService> reference,
+							HttpService service) {
+						// TODO Auto-generated method stub
+
+					}
+
+					@Override
+					public void removedService(
+							ServiceReference<HttpService> reference,
+							HttpService service) {
+						List<String> urls = servletAlias.get(reference.getBundle().getBundleId());
+						if (urls != null) {
+							for (String url : urls) {
+								System.out.println("unregister url : "+url);
+								http.unregister(url);
+							}
+							servletAlias.remove(reference.getBundle().getBundleId());
+						}
+						http = null;
+						bTrack.close();
+					}
+				});
+		tracker2.open();
 	}
 
 	protected void addAlias(long bundleId, String urlFragment) {
