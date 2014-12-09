@@ -1,3 +1,6 @@
 1418110915596	Extract method 'startServiceTracker'
 1418110933188	Extract method 'startBundleTracker'
 1418111467201	Rename type 'ServletConfig'
+1418115700126	Rename field 'servletAlias'
+1418115750490	Extract method 'bindHttpService'
+1418115787072	Extract method 'unbindHttpService'

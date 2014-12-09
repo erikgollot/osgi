@@ -116,7 +116,7 @@ public class Activator implements BundleActivator {
 		// track HTTP service
 		ServiceTracker<HttpService, HttpService> tracker2 = new ServiceTracker<HttpService, HttpService>(
 				context, context.createFilter("(" + Constants.OBJECTCLASS
-						+ "="+org.osgi.service.http.HttpService.class.getName()+")"),
+						+ "=org.osgi.service.http.HttpService)"),
 				new ServiceTrackerCustomizer<HttpService, HttpService>() {
 
 					@Override

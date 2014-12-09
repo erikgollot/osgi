@@ -28,7 +28,7 @@ public class Activator implements BundleActivator {
 	ServiceTracker<LogService, LogService> tracker = null;
 	ServiceReference<HttpService> httpServiceRef = null;
 	HttpService http = null;
-	Hashtable<Long, List<String>> servletAliases = new Hashtable<Long, List<String>>();
+	Hashtable<Long, List<String>> servletAlias = new Hashtable<Long, List<String>>();
 	BundleTracker<String> bTrack;
 
 	@Override
@@ -53,6 +53,12 @@ public class Activator implements BundleActivator {
 
 			@Override
 			public String addingBundle(Bundle bundle, BundleEvent event) {
+				// if (http == null) {
+				// loadHttpService();
+				// if (http != null && !beforeHttp.isEmpty()) {
+				// registerServlets(beforeHttp);
+				// }
+				// }
 				List<ServletDecl> configs = null;
 				if ((configs = findServletDecl(bundle)) != null) {
 					registerServlets(configs);
@@ -116,13 +122,14 @@ public class Activator implements BundleActivator {
 		// track HTTP service
 		ServiceTracker<HttpService, HttpService> tracker2 = new ServiceTracker<HttpService, HttpService>(
 				context, context.createFilter("(" + Constants.OBJECTCLASS
-						+ "="+org.osgi.service.http.HttpService.class.getName()+")"),
+						+ "=org.osgi.service.http.HttpService)"),
 				new ServiceTrackerCustomizer<HttpService, HttpService>() {
 
 					@Override
 					public HttpService addingService(
 							ServiceReference<HttpService> reference) {
-						bindHttpService(context, reference);
+						http = context.getService(reference);
+						bTrack.open();
 						return http;
 					}
 
@@ -138,29 +145,28 @@ public class Activator implements BundleActivator {
 					public void removedService(
 							ServiceReference<HttpService> reference,
 							HttpService service) {
-						unbindHttpService();
+						List<String> urls = servletAlias.get(reference
+								.getBundle().getBundleId());
+						if (urls != null) {
+							for (String url : urls) {
+								System.out.println("unregister url : " + url);
+								http.unregister(url);
+							}
+							servletAlias.remove(reference.getBundle()
+									.getBundleId());
+						}
+						http = null;
+						bTrack.close();
 					}
-
 				});
 		tracker2.open();
 	}
 
-	private void bindHttpService(final BundleContext context,
-			ServiceReference<HttpService> reference) {
-		http = context.getService(reference);
-		bTrack.open();
-	}
-
-	private void unbindHttpService() {
-		http = null;
-		bTrack.close();
-	}
-
 	protected void addAlias(long bundleId, String urlFragment) {
-		List<String> urls = servletAliases.get(bundleId);
+		List<String> urls = servletAlias.get(bundleId);
 		if (urls == null) {
 			urls = new ArrayList<String>();
-			servletAliases.put(bundleId, urls);
+			servletAlias.put(bundleId, urls);
 		}
 		urls.add(urlFragment);
 	}
