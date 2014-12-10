@@ -21,8 +21,11 @@ import org.osgi.service.event.EventHandler;
 /**
  * Servlet that displays hit counters.
  * 
+ * ça marche car on a lancé le service Apache Felix Http Whiteboard qui détecte
+ * les composants de type servlet automatiquement.
  * @author FranÃ§ois Fornaciari
  */
+
 @Component(name = "HitCounterServlet")
 @Provides
 public class HitCounterServlet extends HttpServlet implements EventHandler {
