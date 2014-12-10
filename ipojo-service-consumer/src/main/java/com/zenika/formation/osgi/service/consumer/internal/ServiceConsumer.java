@@ -1,30 +1,43 @@
 package com.zenika.formation.osgi.service.consumer.internal;
 
+import java.util.Dictionary;
 import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.Servlet;
+import javax.servlet.http.HttpServlet;
 
 import org.apache.felix.ipojo.annotations.Bind;
 import org.apache.felix.ipojo.annotations.Component;
+import org.apache.felix.ipojo.annotations.Provides;
 import org.apache.felix.ipojo.annotations.Unbind;
 import org.apache.felix.ipojo.annotations.Validate;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.BundleEvent;
 import org.osgi.framework.ServiceReference;
+import org.osgi.service.cm.ConfigurationException;
+import org.osgi.service.cm.ManagedServiceFactory;
 import org.osgi.service.http.HttpService;
 import org.osgi.service.log.LogService;
 import org.osgi.util.tracker.BundleTracker;
 
 @Component(name = "ServiceConsumer")
-public class ServiceConsumer {
+@Provides
+public class ServiceConsumer implements ManagedServiceFactory {
 
 	public ServiceConsumer(BundleContext bundleContext) {
-		this.bundleContext=bundleContext;
+		this.bundleContext = bundleContext;
+
+		Dictionary<String, String> props = new Hashtable<String, String>();
+		props.put("service.pid", "com.zenika.formation.servlet.configuration");
+		bundleContext.registerService(ManagedServiceFactory.class.getName(),
+				this, props);
 	}
+
 	/**
 	 * OSGi BundleContext.
 	 */
@@ -49,8 +62,7 @@ public class ServiceConsumer {
 	/**
 	 * @see org.osgi.framework.BundleActivator#start(org.osgi.framework.BundleContext)
 	 */
-	public void start(BundleContext bundleContext) throws Exception {
-		this.bundleContext = bundleContext;
+	public void startTracker() throws Exception {
 
 		bundleTracker = new BundleTracker<List<String>>(bundleContext,
 				Bundle.ACTIVE, null) {
@@ -83,10 +95,11 @@ public class ServiceConsumer {
 	 * @param logService
 	 *            LogService instance
 	 */
-	@Bind(filter="(nature=basic)")
+	@Bind(filter = "(nature=basic)")
 	public void bindLogService(LogService logService) {
 		this.logService = logService;
-		log(LogService.LOG_INFO, "Message from bundle [" + bundleContext.getBundle().getBundleId() + "]", null);
+		log(LogService.LOG_INFO, "Message from bundle ["
+				+ bundleContext.getBundle().getBundleId() + "]", null);
 	}
 
 	/**
@@ -110,18 +123,29 @@ public class ServiceConsumer {
 	public void bindHttpService(HttpService httpService,
 			ServiceReference<HttpService> reference) {
 		this.httpService = httpService;
-		
 	}
-	
+
 	@Validate
 	public void start() {
 		try {
-			start(bundleContext);
+
+			// Register servlet identified in update but not already registered
+			if (!toRegister.isEmpty()) {
+				for (String alias : toRegister.keySet()) {
+					registerGenericServlet(bundleContext.getBundle(), alias,
+							toRegister.get(alias).getServlet());
+					dynamicServletRegistry.put(toRegister.get(alias).getPid(),
+							alias);
+				}
+				toRegister.clear();
+			}
+			startTracker();
+			bundleTracker.open();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		// Starts tracking servlets
-		bundleTracker.open();
+
 	}
 
 	/**
@@ -131,13 +155,14 @@ public class ServiceConsumer {
 	 *            HttpService instance
 	 */
 	@Unbind
-	public void unbindHttpService(HttpService httpService,ServiceReference<HttpService> reference) {
+	public void unbindHttpService(HttpService httpService,
+			ServiceReference<HttpService> reference) {
 		// Stops tracking servlets
 		try {
 			stop(reference.getBundle().getBundleContext());
 		} catch (Exception e) {
 			e.printStackTrace();
-		}		
+		}
 		this.httpService = null;
 	}
 
@@ -248,5 +273,55 @@ public class ServiceConsumer {
 			}
 		}
 		return servletMap;
+	}
+
+	@Override
+	public String getName() {
+		return "Me";
+	}
+
+	private void registerGenericServlet(Bundle bundle, String alias,
+			HttpServlet servlet) throws Exception {
+		log(LogService.LOG_INFO, "Registering servlet with alias: " + alias,
+				null);
+		httpService.registerServlet(alias, servlet, null, null);
+
+	}
+
+	Hashtable<String, String> dynamicServletRegistry = new Hashtable<String, String>();
+	Hashtable<String, ToRegisterServlet> toRegister = new Hashtable<String, ToRegisterServlet>();
+
+	@Override
+	public void updated(String pid, Dictionary<String, ?> properties)
+			throws ConfigurationException {
+		System.out.println("update call : " + pid);
+		// If already known, remove first
+		if (dynamicServletRegistry.get(pid) != null) {
+			unregisterAlias(dynamicServletRegistry.get(pid));
+		}
+		try {
+			if (httpService != null) {
+				registerGenericServlet(bundleContext.getBundle(),
+						(String) properties.get("alias"), new GenericServlet(
+								(String) properties.get("text")));
+				dynamicServletRegistry.put(pid,
+						(String) properties.get("alias"));
+			} else {
+				toRegister.put((String) properties.get("alias"),
+						new ToRegisterServlet(pid, new GenericServlet(
+								(String) properties.get("text"))));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	@Override
+	public void deleted(String pid) {
+		if (dynamicServletRegistry.get(pid) != null) {
+			unregisterAlias(dynamicServletRegistry.get(pid));
+			dynamicServletRegistry.remove(pid);
+		}
 	}
 }

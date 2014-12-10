@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metatype:MetaData xmlns:metatype="http://www.osgi.org/xmlns/metatype/v1.0.0">
+
+  <OCD description="My Servlet Configuration" name="com.zenika.formation.servlet.configuration" id="com.zenika.formation.servlet.configuration">
+       
+    <AD name="Poll directory"  id="felix.fileinstall.dir" required="true" type="String" default="load"/>   
+    <AD name="Poll interval"  id="felix.fileinstall.poll" required="false" type="String" default="5000"/>
+    <AD name="Debug"  id="felix.fileinstall.debug" required="false" type="String" default="-1"/>
+    <AD name="Start new bundles?"  id="felix.fileinstall.bundles.new.start" required="false" type="String" default="true"/>
+    
+  </OCD>
+  
+    <Designate pid="com.zenika.formation.servlet.configuration">
+        <Object ocdref="com.zenika.formation.servlet.configuration"/>
+    </Designate>
+  
+</metatype:MetaData>

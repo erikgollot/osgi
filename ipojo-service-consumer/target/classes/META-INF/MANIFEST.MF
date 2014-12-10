@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1418133621896
+Bnd-LastModified: 1418199545156
 Build-Jdk: 1.8.0_25
 Built-By: rformation
 Bundle-ManifestVersion: 2
@@ -8,6 +8,7 @@ Bundle-SymbolicName: com.zenika.formation.osgi.ipojo-service-consumer
 Bundle-Version: 0.1.0.SNAPSHOT
 Created-By: Apache Maven Bundle Plugin
 Import-Package: javax.servlet,javax.servlet.http,org.osgi.framework;vers
- ion="[1.7,2)",org.osgi.service.http;version="[1.2,2)",org.osgi.service.
- log;version="[1.3,2)",org.osgi.util.tracker;version="[1.5,2)"
+ ion="[1.7,2)",org.osgi.service.cm;version="[1.4,2)",org.osgi.service.ht
+ tp;version="[1.2,2)",org.osgi.service.log;version="[1.3,2)",org.osgi.ut
+ il.tracker;version="[1.5,2)"
 Tool: Bnd-1.50.0
