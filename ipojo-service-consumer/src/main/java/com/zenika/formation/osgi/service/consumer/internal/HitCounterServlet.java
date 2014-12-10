@@ -1,9 +1,7 @@
 package com.zenika.formation.osgi.service.consumer.internal;
 
 import java.io.IOException;
-import java.util.Dictionary;
 import java.util.HashMap;
-import java.util.Hashtable;
 import java.util.Map;
 import java.util.Set;
 
@@ -17,6 +15,7 @@ import org.apache.felix.ipojo.annotations.Provides;
 import org.apache.felix.ipojo.annotations.ServiceProperty;
 import org.osgi.framework.BundleContext;
 import org.osgi.service.event.Event;
+import org.osgi.service.event.EventConstants;
 import org.osgi.service.event.EventHandler;
 
 /**
@@ -24,20 +23,25 @@ import org.osgi.service.event.EventHandler;
  * 
  * @author FranÃ§ois Fornaciari
  */
-@Component(name="HitCounterServlet")
+@Component(name = "HitCounterServlet")
 @Provides
 public class HitCounterServlet extends HttpServlet implements EventHandler {
-	@ServiceProperty(value="/counters")
+	@ServiceProperty(value = "/counters")
 	private String alias;
+
+	@ServiceProperty(name = EventConstants.EVENT_TOPIC, value = GenericServlet.PAGE_VISITED)
+	private String eventTopics;
 
 	public String getAlias() {
 		return alias;
 	}
 
 	public HitCounterServlet(BundleContext bundleContext) {
-		Dictionary<String, String> props = new Hashtable<String, String>();
-		props.put("event.topics", GenericServlet.PAGE_VISITED);
-		bundleContext.registerService(EventHandler.class, this, props);
+		// Remplacé par l'attriut eventTopics qui est pris en charge par le
+		// service EventHandler
+		// Dictionary<String, String> props = new Hashtable<String, String>();
+		// props.put("event.topics", GenericServlet.PAGE_VISITED);
+		// bundleContext.registerService(EventHandler.class, this, props);
 	}
 
 	private static final long serialVersionUID = 1L;
@@ -83,7 +87,7 @@ public class HitCounterServlet extends HttpServlet implements EventHandler {
 
 	@Override
 	public void handleEvent(Event event) {
-		
+
 		String context = (String) event.getProperty("context");
 		Integer c = counters.get(context);
 		if (c == null) {
@@ -91,8 +95,8 @@ public class HitCounterServlet extends HttpServlet implements EventHandler {
 		}
 		c = c + 1;
 		counters.put(context, c);
-		
-		System.out.println("get event for context : "+context);
+
+		System.out.println("get event for context : " + context);
 	}
 
 }

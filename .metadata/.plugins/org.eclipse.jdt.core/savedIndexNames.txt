@@ -21,7 +21,6 @@ INDEX VERSION 1.127+C:\Users\rformation\osgi\.metadata\.plugins\org.eclipse.jdt.
 3486600107.index
 1228500075.index
 485756524.index
-1642258484.index
 2355445421.index
 1571830378.index
 748548321.index
