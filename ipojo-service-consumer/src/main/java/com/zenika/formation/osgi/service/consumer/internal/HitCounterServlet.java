@@ -99,7 +99,7 @@ public class HitCounterServlet extends HttpServlet implements EventHandler {
 		c = c + 1;
 		counters.put(context, c);
 
-		System.out.println("get event for context : " + context);
+		System.out.println("get event for context : " + context+" and me in "+alias);
 	}
 
 }

@@ -1,0 +1,26 @@
+package com.zenika.formation.jdbc.consumer.internal;
+
+import org.osgi.framework.BundleActivator;
+import org.osgi.framework.BundleContext;
+import org.osgi.framework.Filter;
+import org.osgi.service.jdbc.DataSourceFactory;
+import org.osgi.util.tracker.ServiceTracker;
+
+public class Activator implements BundleActivator {
+
+	public void start(final BundleContext bundleContext) throws Exception {
+		Filter filter = bundleContext.createFilter("(&(objectClass="
+				+ DataSourceFactory.class.getName() + ")("
+				+ DataSourceFactory.OSGI_JDBC_DRIVER_CLASS + "=org.h2.Driver");
+		ServiceTracker tracker = new ServiceTracker(bundleContext,filter,null);
+		tracker.open();
+		DataSourceFactory factory = (DataSourceFactory)tracker.getService();
+		
+		factory.createDriver(null);
+	}
+
+	public void stop(final BundleContext bundleContext) throws Exception {
+
+	}
+
+}

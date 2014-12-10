@@ -1,0 +1,6 @@
+INDEX VERSION 1.3+C:\Users\rformation\osgi\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+1638747702.index
+2410420284.index
+1121634212.index
+1232506645.index
+1938916319.index

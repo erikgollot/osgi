@@ -1,8 +1,0 @@
-package com.zenika.formation.osgi.service.consumer.internal;
-
-import org.osgi.framework.BundleActivator;
-
-public class Activator implements BundleActivator {
-	
-	
-}

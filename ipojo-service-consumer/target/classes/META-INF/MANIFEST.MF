@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1418204559150
+Bnd-LastModified: 1418207649881
 Build-Jdk: 1.8.0_25
 Built-By: rformation
 Bundle-ManifestVersion: 2
@@ -7,8 +7,9 @@ Bundle-Name: iPOJO :: Service Consumer
 Bundle-SymbolicName: com.zenika.formation.osgi.ipojo-service-consumer
 Bundle-Version: 0.1.0.SNAPSHOT
 Created-By: Apache Maven Bundle Plugin
-Import-Package: javax.servlet,javax.servlet.http,org.osgi.framework;vers
- ion="[1.7,2)",org.osgi.service.cm;version="[1.4,2)",org.osgi.service.ev
- ent;version="[1.3,2)",org.osgi.service.http;version="[1.2,2)",org.osgi.
- service.log;version="[1.3,2)",org.osgi.util.tracker;version="[1.5,2)"
+Import-Package: javax.servlet,javax.servlet.http,org.apache.felix.ipojo.
+ handlers.event.publisher;version="[1.2,2)",org.osgi.framework;version="
+ [1.7,2)",org.osgi.service.cm;version="[1.4,2)",org.osgi.service.event;v
+ ersion="[1.3,2)",org.osgi.service.http;version="[1.2,2)",org.osgi.servi
+ ce.log;version="[1.3,2)",org.osgi.util.tracker;version="[1.5,2)"
 Tool: Bnd-1.50.0

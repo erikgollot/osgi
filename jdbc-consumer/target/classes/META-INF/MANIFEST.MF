@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1418221527943
+Build-Jdk: 1.8.0_25
+Built-By: rformation
+Bundle-Activator: com.zenika.formation.jdbc.consumer.internal.Activator
+Bundle-ManifestVersion: 2
+Bundle-Name: OSGi :: JDBC Consumer
+Bundle-SymbolicName: com.zenika.formation.osgi.jdbc-consumer
+Bundle-Version: 0.1.0.SNAPSHOT
+Created-By: Apache Maven Bundle Plugin
+Import-Package: javax.sql,org.osgi.framework;version="[1.7,2)",org.osgi.
+ service.jdbc;version="[1.0,2)",org.osgi.util.tracker;version="[1.5,2)"
+Tool: Bnd-1.50.0

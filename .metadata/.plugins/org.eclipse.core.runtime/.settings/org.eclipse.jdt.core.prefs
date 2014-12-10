@@ -1,4 +1,5 @@
 eclipse.preferences.version=1
+org.eclipse.jdt.core.classpathVariable.ECLIPSE_HOME=C\:/Users/rformation/Formation-OSGi/programs/eclipse-jee-luna-SR1-win32/
 org.eclipse.jdt.core.classpathVariable.JRE_LIB=C\:/Users/rformation/Formation-OSGi/programs/jdk1.8.0_25-win32/jre/lib/rt.jar
 org.eclipse.jdt.core.classpathVariable.JRE_SRC=
 org.eclipse.jdt.core.classpathVariable.JRE_SRCROOT=

@@ -4,4 +4,16 @@
 <fullyQualifiedTypeName name="com.zenika.formation.osgi.logservice.provider.internal.BasicLogService"/>
 <fullyQualifiedTypeName name="org.osgi.framework.ServiceRegistration"/>
 <fullyQualifiedTypeName name="org.osgi.service.log.LogService"/>
+<fullyQualifiedTypeName name="com.zenika.formation.osgi.service.consumer.internal.ToRegisterServlet"/>
+<fullyQualifiedTypeName name="java.util.Hashtable"/>
+<fullyQualifiedTypeName name="org.apache.felix.ipojo.annotations.Requires"/>
+<fullyQualifiedTypeName name="org.osgi.service.event.EventHandler"/>
+<fullyQualifiedTypeName name="com.zenika.formation.osgi.service.consumer.internal.GenericServlet"/>
+<fullyQualifiedTypeName name="org.apache.felix.ipojo.annotations.ServiceProperty"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
+<fullyQualifiedTypeName name="org.osgi.service.event.EventConstants"/>
+<fullyQualifiedTypeName name="org.apache.felix.ipojo.annotations.Component"/>
+<fullyQualifiedTypeName name="org.apache.felix.ipojo.annotations.Property"/>
+<fullyQualifiedTypeName name="org.osgi.service.event.Event"/>
+<fullyQualifiedTypeName name="org.apache.felix.ipojo.handlers.event.publisher.Publisher"/>
 </qualifiedTypeNameHistroy>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?pde version="3.8"?><target name="osgi" sequenceNumber="10">
+<locations>
+<location id="org.eclipse.rcp" path="${eclipse_home}" type="Feature"/>
+<location path="C:\Users\rformation\virgo-tomcat-server-3.6.3.RELEASE\plugins" type="Directory"/>
+</locations>
+</target>

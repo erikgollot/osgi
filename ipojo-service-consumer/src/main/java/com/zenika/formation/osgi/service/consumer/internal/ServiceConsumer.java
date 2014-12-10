@@ -304,24 +304,24 @@ public class ServiceConsumer implements ManagedServiceFactory {
 			throws ConfigurationException {
 		System.out.println("update call : " + pid);
 		// If already known, remove first
-		if (dynamicServletRegistry.get(pid) != null) {
-			unregisterAlias(dynamicServletRegistry.get(pid));
-		}
-		try {
-			if (httpService != null) {
-				registerGenericServlet(bundleContext.getBundle(),
-						(String) properties.get("alias"), new GenericServlet(
-								(String) properties.get("text"),eventAdmin));
-				dynamicServletRegistry.put(pid,
-						(String) properties.get("alias"));
-			} else {
-				toRegister.put((String) properties.get("alias"),
-						new ToRegisterServlet(pid, new GenericServlet(
-								(String) properties.get("text"),eventAdmin)));
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+//		if (dynamicServletRegistry.get(pid) != null) {
+//			unregisterAlias(dynamicServletRegistry.get(pid));
+//		}
+//		try {
+//			if (httpService != null) {
+//				registerGenericServlet(bundleContext.getBundle(),
+//						(String) properties.get("alias"), new GenericServlet(
+//								(String) properties.get("text"),eventAdmin));
+//				dynamicServletRegistry.put(pid,
+//						(String) properties.get("alias"));
+//			} else {
+//				toRegister.put((String) properties.get("alias"),
+//						new ToRegisterServlet(pid, new GenericServlet(
+//								(String) properties.get("text"),eventAdmin)));
+//			}
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
 
 	}
 

@@ -1,33 +1,42 @@
 package com.zenika.formation.osgi.service.consumer.internal;
 
 import java.io.IOException;
-import java.util.Dictionary;
-import java.util.Hashtable;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.osgi.service.event.Event;
-import org.osgi.service.event.EventAdmin;
+import org.apache.felix.ipojo.annotations.Component;
+import org.apache.felix.ipojo.annotations.Property;
+import org.apache.felix.ipojo.annotations.Provides;
+import org.apache.felix.ipojo.annotations.ServiceProperty;
+import org.apache.felix.ipojo.handlers.event.Publishes;
+import org.apache.felix.ipojo.handlers.event.publisher.Publisher;
 
 /**
  * Generic Servlet implementation.
  * 
  * @author François Fornaciari
  */
-
+@Component(name = "GenericServlet")
+@Provides
 public class GenericServlet extends HttpServlet {
+	@ServiceProperty(value = "/generic")
+	String alias;
+
+	@Property
+	String text;
+
+//	@Requires
+//	EventAdmin eventAdmin;
+
+	@Publishes(name = "publisher", dataKey="context", topics = PAGE_VISITED)
+	private Publisher pub;
 
 	private static final long serialVersionUID = 1L;
 
-	private String text;
+	public GenericServlet() {
 
-	EventAdmin eventAdmin;
-
-	public GenericServlet(String text, EventAdmin eventAdmin) {
-		this.text = text;
-		this.eventAdmin = eventAdmin;
 	}
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -53,10 +62,11 @@ public class GenericServlet extends HttpServlet {
 	public static final String PAGE_VISITED = "PAGE_VISITED";
 
 	private void sendPageVisited(String contextPath) {
-		if (eventAdmin != null) {
-			Dictionary<String, String> eventProps = new Hashtable<String, String>();
-			eventProps.put("context", contextPath);
-			eventAdmin.postEvent(new Event(PAGE_VISITED, eventProps));
-		}
+		pub.sendData(contextPath);
+//		if (eventAdmin != null) {
+//			Dictionary<String, String> eventProps = new Hashtable<String, String>();
+//			eventProps.put("context", contextPath);
+//			eventAdmin.postEvent(new Event(PAGE_VISITED, eventProps));
+//		}
 	}
 }
