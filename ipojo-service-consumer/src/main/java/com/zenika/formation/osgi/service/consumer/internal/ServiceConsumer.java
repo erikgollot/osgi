@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServlet;
 import org.apache.felix.ipojo.annotations.Bind;
 import org.apache.felix.ipojo.annotations.Component;
 import org.apache.felix.ipojo.annotations.Provides;
+import org.apache.felix.ipojo.annotations.Requires;
 import org.apache.felix.ipojo.annotations.Unbind;
 import org.apache.felix.ipojo.annotations.Validate;
 import org.osgi.framework.Bundle;
@@ -21,6 +22,7 @@ import org.osgi.framework.BundleEvent;
 import org.osgi.framework.ServiceReference;
 import org.osgi.service.cm.ConfigurationException;
 import org.osgi.service.cm.ManagedServiceFactory;
+import org.osgi.service.event.EventAdmin;
 import org.osgi.service.http.HttpService;
 import org.osgi.service.log.LogService;
 import org.osgi.util.tracker.BundleTracker;
@@ -37,7 +39,12 @@ public class ServiceConsumer implements ManagedServiceFactory {
 		bundleContext.registerService(ManagedServiceFactory.class.getName(),
 				this, props);
 	}
-
+/**
+ * EventAdmin for async publish
+ */
+	@Requires
+	EventAdmin eventAdmin;
+	
 	/**
 	 * OSGi BundleContext.
 	 */
@@ -95,7 +102,7 @@ public class ServiceConsumer implements ManagedServiceFactory {
 	 * @param logService
 	 *            LogService instance
 	 */
-	@Bind(filter = "(nature=basic)")
+	@Bind(filter = "(nature=basic)",optional=true)
 	public void bindLogService(LogService logService) {
 		this.logService = logService;
 		log(LogService.LOG_INFO, "Message from bundle ["
@@ -124,7 +131,7 @@ public class ServiceConsumer implements ManagedServiceFactory {
 			ServiceReference<HttpService> reference) {
 		this.httpService = httpService;
 	}
-
+	
 	@Validate
 	public void start() {
 		try {
@@ -139,6 +146,7 @@ public class ServiceConsumer implements ManagedServiceFactory {
 				}
 				toRegister.clear();
 			}
+			
 			startTracker();
 			bundleTracker.open();
 		} catch (Exception e) {
@@ -303,13 +311,13 @@ public class ServiceConsumer implements ManagedServiceFactory {
 			if (httpService != null) {
 				registerGenericServlet(bundleContext.getBundle(),
 						(String) properties.get("alias"), new GenericServlet(
-								(String) properties.get("text")));
+								(String) properties.get("text"),eventAdmin));
 				dynamicServletRegistry.put(pid,
 						(String) properties.get("alias"));
 			} else {
 				toRegister.put((String) properties.get("alias"),
 						new ToRegisterServlet(pid, new GenericServlet(
-								(String) properties.get("text"))));
+								(String) properties.get("text"),eventAdmin)));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
