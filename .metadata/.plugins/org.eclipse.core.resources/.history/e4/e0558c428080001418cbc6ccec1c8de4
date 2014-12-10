@@ -1,0 +1,23 @@
+package com.zenika.formation.test;
+
+import javax.inject.Inject;
+
+import org.junit.Assert;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.ops4j.pax.exam.junit.PaxExam;
+import org.osgi.framework.BundleContext;
+
+/**
+ * OSGi tests.
+ */
+@RunWith(PaxExam.class)
+public class OSGiTest {
+	@Inject
+	BundleContext bundleContext;
+
+	@Test
+	public void testBundleContextNotNull() {
+		Assert.assertNotNull(bundleContext);
+	}
+}

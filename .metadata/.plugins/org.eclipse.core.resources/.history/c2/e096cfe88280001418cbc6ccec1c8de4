@@ -1,0 +1,84 @@
+package com.zenika.formation.test;
+
+import static org.ops4j.pax.exam.CoreOptions.junitBundles;
+import static org.ops4j.pax.exam.CoreOptions.mavenBundle;
+import static org.ops4j.pax.exam.CoreOptions.options;
+
+import java.sql.Driver;
+import java.sql.SQLException;
+
+import javax.inject.Inject;
+
+import org.junit.Assert;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.ops4j.pax.exam.Configuration;
+import org.ops4j.pax.exam.Option;
+import org.ops4j.pax.exam.junit.PaxExam;
+import org.osgi.framework.Bundle;
+import org.osgi.framework.BundleContext;
+import org.osgi.service.jdbc.DataSourceFactory;
+import org.osgi.service.log.LogService;
+
+/**
+ * OSGi tests.
+ */
+@RunWith(PaxExam.class)
+public class OSGiTest {
+	@Inject
+	BundleContext bundleContext;
+
+	@Inject
+	LogService logService;
+
+	@Inject
+	DataSourceFactory dataSourceFactory;
+
+	@Configuration
+	public static Option[] configuration() {
+		return options(
+				mavenBundle("com.zenika.formation.osgi", "logservice-provider",
+						"0.1.0-SNAPSHOT"),
+				mavenBundle("org.osgi", "org.osgi.compendium", "4.3.1")
+						.noStart(),
+				wrappedBundle(
+						mavenBundle("javax.servlet", "servlet-api", "2.5"))
+						.noStart(),
+				mavenBundle("com.zenika.formation.osgi", "jdbc-provider",
+						"0.1.0-SNAPSHOT"), junitBundles());
+	}
+
+	@Test
+	public void testBundleContextNotNull() {
+		Assert.assertNotNull(bundleContext);
+	}
+
+	@Test
+	public void testLogServiceNotNulll() {
+		Assert.assertNotNull(logService);
+	}
+
+	@Test
+	public void testH2DriverIs13() {
+		try {
+			Driver d = dataSourceFactory.createDriver(null);
+			Assert.assertEquals(1, d.getMajorVersion());
+			Assert.assertEquals(3, d.getMinorVersion());
+		} catch (SQLException e) {
+			Assert.fail();
+		}
+
+	}
+
+	@Test
+	public void testLogServiceInstalled() {
+		Bundle bundleLogServiceProvider = null;
+
+		for (Bundle bundle : bundleContext.getBundles()) {
+			if (bundle.getSymbolicName().equals(
+					"com.zenika.formation.osgi.logservice-provider"))
+				bundleLogServiceProvider = bundle;
+		}
+		Assert.assertNotNull(bundleLogServiceProvider);
+	}
+}

@@ -2740,3 +2740,170 @@
 2014-12-10 15:25:24,351 [main] INFO  o.e.m2e.actions.ExecutePomAction - Using existing launch configuration
 2014-12-10 15:25:24,413 [Worker-12] INFO  o.e.m.i.launch.MavenLaunchDelegate - C:\Users\rformation\osgi\jdbc-consumer
 2014-12-10 15:25:24,413 [Worker-12] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B clean install
+2014-12-10 16:10:33,908 [Worker-26] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-10 16:10:33,908 [Worker-26] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2014-12-10 16:10:33,908 [Worker-26] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-10 16:10:33,908 [Worker-26] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\rformation\osgi\ipojo-service-consumer\src\test\resources
+2014-12-10 16:10:33,923 [Worker-26] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-10 16:10:33,923 [Worker-26] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2014-12-10 16:10:33,923 [Worker-26] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-10 16:10:33,923 [Worker-26] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\rformation\osgi\jdbc-consumer\src\test\resources
+2014-12-10 16:10:33,939 [Worker-26] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-10 16:10:33,939 [Worker-26] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2014-12-10 16:10:33,955 [Worker-26] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-10 16:10:33,955 [Worker-26] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\rformation\osgi\jdbc-provider\src\test\resources
+2014-12-10 16:10:41,089 [Worker-5] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-surefire-plugin/2.12.4/maven-surefire-plugin-2.12.4.jar
+2014-12-10 16:10:41,167 [Worker-5] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-surefire-plugin/2.12.4/maven-surefire-plugin-2.12.4.jar
+2014-12-10 16:10:41,229 [Worker-5] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-jar-plugin/2.4/maven-jar-plugin-2.4.jar
+2014-12-10 16:10:41,307 [Worker-5] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-jar-plugin/2.4/maven-jar-plugin-2.4.jar
+2014-12-10 16:10:41,370 [Worker-5] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-install-plugin/2.4/maven-install-plugin-2.4.jar
+2014-12-10 16:10:41,463 [Worker-5] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-install-plugin/2.4/maven-install-plugin-2.4.jar
+2014-12-10 16:10:41,807 [Worker-5] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.zenika.formation.osgi:osgi-test:0.1.0-SNAPSHOT @ C:\Users\rformation\osgi\osgi-test\pom.xml.
+2014-12-10 16:10:45,084 [Worker-5] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-10 16:10:45,084 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\rformation\osgi\osgi-test\src\main\resources
+2014-12-10 16:10:45,084 [Worker-5] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-10 16:10:45,084 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\rformation\osgi\osgi-test\src\test\resources
+2014-12-10 16:10:45,521 [Worker-22] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.zenika.formation.osgi:osgi-test:0.1.0-SNAPSHOT @ C:\Users\rformation\osgi\osgi-test\pom.xml.
+2014-12-10 16:10:46,005 [Worker-23] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-10 16:10:46,005 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\rformation\osgi\osgi-test\src\main\resources
+2014-12-10 16:10:46,020 [Worker-23] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-10 16:10:46,020 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\rformation\osgi\osgi-test\src\test\resources
+2014-12-10 16:10:47,549 [Worker-29] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-10 16:10:47,565 [Worker-29] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\rformation\osgi\osgi-test\src\main\resources
+2014-12-10 16:10:47,565 [Worker-29] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-10 16:10:47,565 [Worker-29] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\rformation\osgi\osgi-test\src\test\resources
+2014-12-10 16:12:35,360 [Worker-3] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-10 16:12:35,360 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\rformation\osgi\osgi-test\src\main\resources
+2014-12-10 16:12:35,360 [Worker-3] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-10 16:12:35,360 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\rformation\osgi\osgi-test\src\test\resources
+2014-12-10 16:12:36,405 [Worker-22] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-10 16:12:36,405 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\rformation\osgi\osgi-test\src\main\resources
+2014-12-10 16:12:36,405 [Worker-22] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-10 16:12:36,405 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\rformation\osgi\osgi-test\src\test\resources
+2014-12-10 16:13:53,435 [Worker-29] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-10 16:13:53,435 [Worker-29] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\rformation\osgi\osgi-test\src\main\resources
+2014-12-10 16:13:53,451 [Worker-29] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-10 16:13:53,451 [Worker-29] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\rformation\osgi\osgi-test\src\test\resources
+2014-12-10 16:15:24,006 [main] INFO  o.e.m2e.actions.ExecutePomAction - Creating new launch configuration
+2014-12-10 16:15:36,116 [Worker-27] INFO  o.e.m.i.launch.MavenLaunchDelegate - C:\Users\rformation\osgi\osgi-test
+2014-12-10 16:15:36,116 [Worker-27] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -Pfelix  -B clean install
+2014-12-10 16:21:49,098 [Worker-30] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-10 16:21:49,098 [Worker-30] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\rformation\osgi\osgi-test\src\main\resources
+2014-12-10 16:21:49,114 [Worker-30] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-10 16:21:49,114 [Worker-30] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\rformation\osgi\osgi-test\src\test\resources
+2014-12-10 16:21:50,159 [Worker-32] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-10 16:21:50,159 [Worker-32] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\rformation\osgi\osgi-test\src\main\resources
+2014-12-10 16:21:50,159 [Worker-32] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-10 16:21:50,174 [Worker-32] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\rformation\osgi\osgi-test\src\test\resources
+2014-12-10 16:22:40,035 [Worker-31] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-10 16:22:40,035 [Worker-31] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\rformation\osgi\osgi-test\src\main\resources
+2014-12-10 16:22:40,051 [Worker-31] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-10 16:22:40,051 [Worker-31] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\rformation\osgi\osgi-test\src\test\resources
+2014-12-10 16:22:47,229 [main] INFO  o.e.m2e.actions.ExecutePomAction - Using existing launch configuration
+2014-12-10 16:22:47,292 [Worker-27] INFO  o.e.m.i.launch.MavenLaunchDelegate - C:\Users\rformation\osgi\osgi-test
+2014-12-10 16:22:47,292 [Worker-27] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -Pfelix  -B clean install
+2014-12-10 16:23:45,700 [Worker-3] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-10 16:23:45,700 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\rformation\osgi\osgi-test\src\main\resources
+2014-12-10 16:23:45,700 [Worker-3] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-10 16:23:45,700 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\rformation\osgi\osgi-test\src\test\resources
+2014-12-10 16:23:46,762 [Worker-28] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-10 16:23:46,762 [Worker-28] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\rformation\osgi\osgi-test\src\main\resources
+2014-12-10 16:23:46,762 [Worker-28] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-10 16:23:46,762 [Worker-28] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\rformation\osgi\osgi-test\src\test\resources
+2014-12-10 16:24:24,469 [Worker-25] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-10 16:24:24,469 [Worker-25] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\rformation\osgi\osgi-test\src\main\resources
+2014-12-10 16:24:24,485 [Worker-25] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-10 16:24:24,485 [Worker-25] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\rformation\osgi\osgi-test\src\test\resources
+2014-12-10 16:24:53,298 [Worker-22] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-10 16:24:53,298 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\rformation\osgi\osgi-test\src\main\resources
+2014-12-10 16:24:53,298 [Worker-22] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-10 16:24:53,298 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\rformation\osgi\osgi-test\src\test\resources
+2014-12-10 16:30:18,493 [Worker-3] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-10 16:30:18,493 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\rformation\osgi\osgi-test\src\main\resources
+2014-12-10 16:30:18,493 [Worker-3] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-10 16:30:18,493 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\rformation\osgi\osgi-test\src\test\resources
+2014-12-10 16:30:29,571 [main] INFO  o.e.m2e.actions.ExecutePomAction - Using existing launch configuration
+2014-12-10 16:30:29,633 [Worker-28] INFO  o.e.m.i.launch.MavenLaunchDelegate - C:\Users\rformation\osgi\osgi-test
+2014-12-10 16:30:29,633 [Worker-28] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -Pfelix  -B clean install
+2014-12-10 16:33:08,065 [Worker-22] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-10 16:33:08,065 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\rformation\osgi\osgi-test\src\main\resources
+2014-12-10 16:33:08,065 [Worker-22] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-10 16:33:08,065 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\rformation\osgi\osgi-test\src\test\resources
+2014-12-10 16:33:09,094 [Worker-22] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-10 16:33:09,094 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\rformation\osgi\osgi-test\src\main\resources
+2014-12-10 16:33:09,110 [Worker-22] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-10 16:33:09,110 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\rformation\osgi\osgi-test\src\test\resources
+2014-12-10 16:33:12,201 [main] INFO  o.e.m2e.actions.ExecutePomAction - Using existing launch configuration
+2014-12-10 16:33:12,279 [Worker-31] INFO  o.e.m.i.launch.MavenLaunchDelegate - C:\Users\rformation\osgi\osgi-test
+2014-12-10 16:33:12,279 [Worker-31] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -Pfelix  -B clean install
+2014-12-10 16:34:47,316 [Worker-22] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-10 16:34:47,316 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\rformation\osgi\osgi-test\src\main\resources
+2014-12-10 16:34:47,331 [Worker-22] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-10 16:34:47,331 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\rformation\osgi\osgi-test\src\test\resources
+2014-12-10 16:34:47,456 [Worker-5] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-10 16:34:47,456 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\rformation\osgi\osgi-test\src\main\resources
+2014-12-10 16:34:47,456 [Worker-5] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-10 16:34:47,472 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\rformation\osgi\osgi-test\src\test\resources
+2014-12-10 16:35:25,536 [Worker-28] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-10 16:35:25,536 [Worker-28] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\rformation\osgi\osgi-test\src\main\resources
+2014-12-10 16:35:25,536 [Worker-28] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-10 16:35:25,536 [Worker-28] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\rformation\osgi\osgi-test\src\test\resources
+2014-12-10 16:36:16,791 [Worker-25] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-10 16:36:16,791 [Worker-25] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\rformation\osgi\osgi-test\src\main\resources
+2014-12-10 16:36:16,791 [Worker-25] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-10 16:36:16,791 [Worker-25] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\rformation\osgi\osgi-test\src\test\resources
+2014-12-10 16:37:17,884 [Worker-25] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-10 16:37:17,884 [Worker-25] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\rformation\osgi\osgi-test\src\main\resources
+2014-12-10 16:37:17,884 [Worker-25] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-10 16:37:17,884 [Worker-25] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\rformation\osgi\osgi-test\src\test\resources
+2014-12-10 16:37:25,207 [main] INFO  o.e.m2e.actions.ExecutePomAction - Using existing launch configuration
+2014-12-10 16:37:25,269 [Worker-28] INFO  o.e.m.i.launch.MavenLaunchDelegate - C:\Users\rformation\osgi\osgi-test
+2014-12-10 16:37:25,269 [Worker-28] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -Pfelix  -B clean install
+2014-12-10 16:38:32,673 [Worker-30] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-10 16:38:32,673 [Worker-30] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\rformation\osgi\osgi-test\src\main\resources
+2014-12-10 16:38:32,688 [Worker-30] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-10 16:38:32,688 [Worker-30] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\rformation\osgi\osgi-test\src\test\resources
+2014-12-10 16:38:33,718 [Worker-36] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-10 16:38:33,718 [Worker-36] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\rformation\osgi\osgi-test\src\main\resources
+2014-12-10 16:38:33,718 [Worker-36] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-10 16:38:33,718 [Worker-36] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\rformation\osgi\osgi-test\src\test\resources
+2014-12-10 16:38:36,807 [main] INFO  o.e.m2e.actions.ExecutePomAction - Using existing launch configuration
+2014-12-10 16:38:36,869 [Worker-5] INFO  o.e.m.i.launch.MavenLaunchDelegate - C:\Users\rformation\osgi\osgi-test
+2014-12-10 16:38:36,869 [Worker-5] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -Pfelix  -B clean install
+2014-12-10 16:40:29,600 [Worker-26] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-10 16:40:29,600 [Worker-26] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\rformation\osgi\osgi-test\src\main\resources
+2014-12-10 16:40:29,600 [Worker-26] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-10 16:40:29,600 [Worker-26] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\rformation\osgi\osgi-test\src\test\resources
+2014-12-10 16:40:30,694 [Worker-26] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-10 16:40:30,694 [Worker-26] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\rformation\osgi\osgi-test\src\main\resources
+2014-12-10 16:40:30,694 [Worker-26] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-10 16:40:30,710 [Worker-26] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\rformation\osgi\osgi-test\src\test\resources
+2014-12-10 16:40:47,531 [Worker-5] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-10 16:40:47,531 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\rformation\osgi\osgi-test\src\main\resources
+2014-12-10 16:40:47,531 [Worker-5] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-10 16:40:47,531 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\rformation\osgi\osgi-test\src\test\resources
+2014-12-10 16:40:53,292 [main] INFO  o.e.m2e.actions.ExecutePomAction - Using existing launch configuration
+2014-12-10 16:40:53,370 [Worker-32] INFO  o.e.m.i.launch.MavenLaunchDelegate - C:\Users\rformation\osgi\osgi-test
+2014-12-10 16:40:53,370 [Worker-32] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -Pfelix  -B clean install
+2014-12-10 16:45:05,598 [Worker-26] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-10 16:45:05,598 [Worker-26] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\rformation\osgi\osgi-test\src\main\resources
+2014-12-10 16:45:05,598 [Worker-26] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-10 16:45:05,598 [Worker-26] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\rformation\osgi\osgi-test\src\test\resources
+2014-12-10 16:45:06,627 [Worker-31] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-10 16:45:06,627 [Worker-31] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\rformation\osgi\osgi-test\src\main\resources
+2014-12-10 16:45:06,627 [Worker-31] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-10 16:45:06,627 [Worker-31] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\rformation\osgi\osgi-test\src\test\resources
+2014-12-10 16:45:36,968 [Worker-35] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-10 16:45:36,968 [Worker-35] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\rformation\osgi\osgi-test\src\main\resources
+2014-12-10 16:45:36,968 [Worker-35] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-10 16:45:36,968 [Worker-35] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\rformation\osgi\osgi-test\src\test\resources
+2014-12-10 16:45:39,028 [Worker-29] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-10 16:45:39,028 [Worker-29] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\rformation\osgi\osgi-test\src\main\resources
+2014-12-10 16:45:39,028 [Worker-29] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-10 16:45:39,028 [Worker-29] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\rformation\osgi\osgi-test\src\test\resources
+2014-12-10 16:45:45,010 [main] INFO  o.e.m2e.actions.ExecutePomAction - Using existing launch configuration
+2014-12-10 16:45:45,073 [Worker-36] INFO  o.e.m.i.launch.MavenLaunchDelegate - C:\Users\rformation\osgi\osgi-test
+2014-12-10 16:45:45,073 [Worker-36] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -Pfelix  -B clean install
+2014-12-10 16:47:16,235 [main] INFO  o.e.m2e.actions.ExecutePomAction - Using existing launch configuration
+2014-12-10 16:47:16,313 [Worker-36] INFO  o.e.m.i.launch.MavenLaunchDelegate - C:\Users\rformation\osgi\osgi-test
+2014-12-10 16:47:16,313 [Worker-36] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -Pfelix  -B clean install

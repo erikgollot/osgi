@@ -1,0 +1,33 @@
+package com.zenika.formation.test;
+
+import static org.ops4j.pax.exam.CoreOptions.options;
+import static org.ops4j.pax.exam.CoreOptions.junitBundles;
+
+import javax.inject.Inject;
+
+import org.junit.Assert;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.ops4j.pax.exam.Configuration;
+import org.ops4j.pax.exam.Option;
+import org.ops4j.pax.exam.junit.PaxExam;
+import org.osgi.framework.BundleContext;
+
+/**
+ * OSGi tests.
+ */
+@RunWith(PaxExam.class)
+public class OSGiTest {
+	@Inject
+	BundleContext bundleContext;
+
+	@Configuration
+	public static Option[] configuration() {
+		return options(junitBundles());
+	}
+	
+	@Test
+	public void testBundleContextNotNull() {
+		Assert.assertNotNull(bundleContext);
+	}
+}
